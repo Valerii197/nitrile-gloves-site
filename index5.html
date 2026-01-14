@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Нітрилові рукавички — купити</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #0a5ed7;
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: #000;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            color: #0a5ed7;
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: #f3f3f3;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .uses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .use {
+            background: #e9f1ff;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 📱 Адаптивність */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 26px;
+            }
+        }
+        form {
+             max-width: 400px;
+             margin-top: 20px;
+             }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+              }
+
+        button {
+           width: 100%;
+           border: none;
+           cursor: pointer;
+        }
+
+.prices {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.price-card {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 220px;
+    text-align: center;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0a5ed7;
+}
+
+.product-img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+}
+
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* дуже важливо для телефонів /
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 220px; / ширина однієї фотки /
+    border-radius: 10px;
+    object-fit: cover; / гарна обробка фото */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.photo {
+    flex: 1 1 200px;
+    max-width: 220px;
+    text-align: center;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.photo img:hover {
+    transform: scale(1.05);
+}
+
+.photo button {
+    margin-top: 5px;
+    padding: 6px 12px;
+    border: none;
+    background-color: #0a5ed7;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.photo button:hover {
+    background-color: #084bb5;
+}
+
+/* Модальне вікно */
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+}
+
+#close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}   
+ </style>
+</head>
+<body>
+
+<header>
+<section>
+ <section class="gallery">
+  <div class="photo">
+    <img src="gloves1.jpg" alt="Блакитні" onclick="openModal(this)">
+    <button onclick="openModal(this.previousElementSibling)">Збільшити</button>
+    <p>Блакитні</p>
+  </div>
+  <div class="photo">
+    <img src="gloves2.jpg" alt="Чорні" onclick="openModal(this)">
+    <button onclick="openModal(this.previousElementSibling)">Збільшити</button>
+    <p>Чорні</p>
+  </div>
+  <div class="photo">
+    <img src="gloves3.jpg" alt="Рожеві" onclick="openModal(this)">
+    <button onclick="openModal(this.previousElementSibling)">Збільшити</button>
+    <p>Рожеві</p>
+  </div>
+  <div class="photo">
+    <img src="gloves4.jpg" alt="Бордові" onclick="openModal(this)">
+    <button onclick="openModal(this.previousElementSibling)">Збільшити</button>
+    <p>Бордові</p>
+  </div>
+</section>
+
+<!-- Модальне вікно -->
+<div id="modal" onclick="closeModal()">
+  <span id="close">&times;</span>
+  <img id="modal-img">
+</div>
+</section>
+
+    <h1>Нітрилові рукавички</h1>
+    <p>Надійний захист для медицини, лабораторій та побуту</p>
+    <a href="#order" class="btn">Замовити зараз</a>
+</header>
+
+<section>
+    <h2>Чому саме нітрил?</h2>
+    <div class="features">
+        <div class="feature">
+            <h3>🛡️ Без латексу</h3>
+            <p>Не викликають алергічних реакцій.</p>
+        </div>
+        <div class="feature">
+            <h3>💪 Міцні</h3>
+            <p>Стійкі до проколів та розривів.</p>
+        </div>
+        <div class="feature">
+            <h3>🧪 Хімічна стійкість</h3>
+            <p>Захищають від масел, розчинників і реагентів.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Де використовуються</h2>
+    <div class="uses">
+        <div class="use">🏥 Медицина</div>
+        <div class="use">🧬 Лабораторії</div>
+        <div class="use">🍽️ Харчова промисловість</div>
+        <div class="use">💉 Косметологія</div>
+        <div class="use">🧹 Клінінг</div>
+        <div class="use">🏠 Побут</div>
+    </div>
+</section>
+
+<section>
+    <h2>Характеристики</h2>
+    <ul>
+        <li>Матеріал: нітрил</li>
+        <li>Вага: 3.2грама, 3.5грама, 3.8грама</li>
+        <li>Без пудри</li>
+        <li>Колір: синій / чорний / рожевий / бордовий</li>
+        <li>Розміри: XS, S, M, L, XL</li>
+        <li>Упаковка: 100 шт.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Ціноутворення і доставка</h2>
+    <ul>
+        <li>Мінімальне замовлення 10 упаковок</li>
+        <li>Можливість індивідуального прорахунку ціни</li>
+        <li>Доставка ТК "НОВА ПОШТА"</li>
+        <li>ОПЛАТА по безготівковому перерахунку</li>
+    </ul>
+</section>
+
+<section id="price">
+    <h2>Ціни на рукавички</h2>
+
+    <div class="prices">
+        <div class="price-card">
+            <h3>малий опт</h3>
+            <p class="price">від 225 грн</p>
+            <p>від 10 упаковок</p>
+        </div>
+
+        <div class="price-card">
+            <h3>Опт</h3>
+            <p class="price">від 220 грн</p>
+            <p>від 30 упаковок</p>
+        </div>
+
+        <div class="price-card">
+            <h3>Опт+</h3>
+            <p class="price">за домовленністю</p>
+            <p>від 50 упаковок</p>
+        </div>
+    </div>
+</section>
+
+<section id="order">
+    <h2>Замовлення</h2>
+    <p>Напишіть нам у Telegram — відповімо швидко</p>
+
+    <a 
+      href="https://t.me/MeraltdBot?text=Хочу%20замовити%20нітрилові%20рукавички"
+      class="btn"
+      target="_blank">
+      🟢 Замовити в Telegram
+    </a>
+</section>
+  
+<section id="contact">
+    <h2>Контакти</h2>
+    <p>ТОВ "НВК "МЄРА". ЄДРПОУ 39219054. ІПН 392190520337</p>
+    <p>м. Харків</p>
+    <p>Email: office@mera.org.ua</p>
+    <p>Телефон: +38 050 663 97 94</p>
+    <p>viber:  +38 050 663 97 94</p>
+</section>
+
+<footer>
+    <p>© 2026 Нітрилові рукавички</p>
+</footer>
+
+<script>
+function openModal(img) {
+    if(img.tagName === 'BUTTON') return;
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal-img").src = img.src;
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+</body>
+</html>
